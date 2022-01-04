@@ -11,9 +11,8 @@ class Post < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true
-  validates :presence, presence: true
+  validates :prefecture, presence: true
   validates :city, presence: true
-  validates :town, presence: true
   validates :lat, presence: true
   validates :lng, presence: true
 end
