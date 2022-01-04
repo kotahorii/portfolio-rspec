@@ -1,8 +1,11 @@
 FactoryBot.define do
   factory :user do
-    name {"test-user"}
-    email {"test@test.jp"}
-    id {"123456"}
+    id {1}
+    name {"raspec-user"}
+    email {"rspec@test.jp"}
+    password {'password'}
+    prefecture {1}
+    introduction {'testtesttest'}
 
     trait :invalid do
       name {nil}
