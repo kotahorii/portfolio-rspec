@@ -4,7 +4,7 @@ FactoryBot.define do
     name {"raspec-user"}
     email {"rspec@test.jp"}
     password {'password'}
-    prefecture {1}
+    prefecture {14}
     introduction {'testtesttest'}
 
     trait :invalid do
