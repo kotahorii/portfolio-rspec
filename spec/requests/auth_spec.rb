@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::Auth::RegistrationsController, type: :request do
   describe 'ユーザーログインのテスト' do
-    let!(:user) {create(:user)}
+    let!(:user) { create(:user) }
     context 'パラメータが正常な場合' do
       before do
-        post api_v1_user_session_path, params: { email: user['email'], password: 'password'}
+        post api_v1_user_session_path, params: { email: user['email'], password: 'password' }
       end
 
       it 'HTTPステータスが200であること' do

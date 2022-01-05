@@ -1,56 +1,56 @@
 User.create!(
-  email: "user1@test.com",
+  email: 'user1@test.com',
   password: 'aaaaaa',
   name: '高橋 健',
   image: open('./app/images/user/user1.jpeg'),
   introduction: '旅行の感動を共有してみたくて、初めてみました。主に関西の写真をあげたいと思っています。',
-  prefecture: 28,
+  prefecture: 28
 )
 
 User.create!(
-  email: "user2@test.com",
+  email: 'user2@test.com',
   password: 'aaaaaa',
   name: '太田 誠',
   image: open('./app/images/user/user2.jpeg'),
   introduction: '綺麗な風景写真を見るのが好きで初めてみました。主に中部地方の写真をあげたいと思っています。',
-  prefecture: 24,
+  prefecture: 24
 )
 
 User.create!(
-  email: "user3@test.com",
+  email: 'user3@test.com',
   password: 'aaaaaa',
   name: '岡田 裕之',
   image: open('./app/images/user/user3.jpeg'),
   introduction: '新しい旅先を探したくて初めてみました。主に北海道、東北の写真をあげたいと思っています。',
-  prefecture: 2,
+  prefecture: 2
 )
 
 User.create!(
-  email: "user4@test.com",
+  email: 'user4@test.com',
   password: 'aaaaaa',
   name: '田中 歩',
   image: open('./app/images/user/user4.jpeg'),
   introduction: '新しいアプリだったので初めてみました。主に九州の写真をあげたいと思っています。',
-  prefecture: 41,
+  prefecture: 41
 )
 
 User.create!(
-  email: "user5@test.com",
+  email: 'user5@test.com',
   password: 'aaaaaa',
   name: '佐藤 一郎',
   image: open('./app/images/user/user5.jpeg'),
   introduction: '旅先の写真を撮るのが好きで初めてみました。主に関東の写真をあげたいと思っています。',
-  prefecture: 14,
+  prefecture: 14
 )
 
 10.times do |n|
-User.create!(
-  email: "text#{n + 6}@test.com",
-  password: 'aaaaaa',
-  name: "test#{n + 6}",
-  introduction: "test#{n + 6}",
-  prefecture: n + 2,
-)
+  User.create!(
+    email: "text#{n + 6}@test.com",
+    password: 'aaaaaa',
+    name: "test#{n + 6}",
+    introduction: "test#{n + 6}",
+    prefecture: n + 2
+  )
 end
 
 User.create!(
@@ -59,7 +59,7 @@ User.create!(
   name: 'ゲストユーザー',
   image: open('./app/images/user/guest.jpg'),
   introduction: 'ゲストユーザーです。よろしくお願いします。',
-  prefecture: 14,
+  prefecture: 14
 )
 
 Post.create!(
@@ -73,7 +73,7 @@ Post.create!(
   town: '洞爺町',
   image: open('./app/images/post/toyako.jpeg'),
   lat: 42.654391,
-  lng: 140.825134,
+  lng: 140.825134
 )
 
 Post.create!(
@@ -87,7 +87,7 @@ Post.create!(
   town: '神居町神居古潭',
   image: open('./app/images/post/kamuikotan.jpeg'),
   lat: 43.721547,
-  lng: 142.198833,
+  lng: 142.198833
 )
 
 Post.create!(
@@ -101,7 +101,7 @@ Post.create!(
   town: '大通西',
   image: open('./app/images/post/sapporo_tower.jpeg'),
   lat: 43.05934,
-  lng: 141.34198,
+  lng: 141.34198
 )
 
 Post.create!(
@@ -114,7 +114,7 @@ Post.create!(
   town: '道頓堀',
   image: open('./app/images/post/dotonbori.jpeg'),
   lat: 34.668647,
-  lng: 135.503098,
+  lng: 135.503098
 )
 
 Post.create!(
@@ -128,7 +128,7 @@ Post.create!(
   town: '恵美須東',
   image: open('./app/images/post/tsutenkaku.jpeg'),
   lat: 34.651238,
-  lng: 135.50575,
+  lng: 135.50575
 )
 
 Post.create!(
@@ -142,7 +142,7 @@ Post.create!(
   town: '波止場町',
   image: open('./app/images/post/meriken_park.jpeg'),
   lat: 34.682577,
-  lng: 135.188059,
+  lng: 135.188059
 )
 
 Post.create!(
@@ -157,7 +157,7 @@ Post.create!(
   town: '港町',
   image: open('./app/images/post/nagoyako.jpeg'),
   lat: 35.090071,
-  lng: 136.882226,
+  lng: 136.882226
 )
 
 Post.create!(
@@ -170,7 +170,7 @@ Post.create!(
   town: '栄',
   image: open('./app/images/post/nagoya_science.jpeg'),
   lat: 35.164814,
-  lng: 136.90405,
+  lng: 136.90405
 )
 
 Post.create!(
@@ -183,7 +183,7 @@ Post.create!(
   town: '栄',
   image: open('./app/images/post/nayabashi.jpeg'),
   lat: 35.164814,
-  lng: 136.90405,
+  lng: 136.90405
 )
 
 Post.create!(
@@ -196,7 +196,7 @@ Post.create!(
   town: '地行浜',
   image: open('./app/images/post/hukuoka_dome.jpeg'),
   lat: 33.59489,
-  lng: 130.361167,
+  lng: 130.361167
 )
 
 Post.create!(
@@ -210,7 +210,7 @@ Post.create!(
   town: '西戸崎',
   image: open('./app/images/post/uminonakamichi.jpeg'),
   lat: 33.657135,
-  lng: 130.354791,
+  lng: 130.354791
 )
 
 Post.create!(
@@ -224,7 +224,7 @@ Post.create!(
   town: '百道浜',
   image: open('./app/images/post/momochi.jpeg'),
   lat: 33.594871,
-  lng: 130.35224,
+  lng: 130.35224
 )
 
 Post.create!(
@@ -239,7 +239,7 @@ Post.create!(
   town: '山下町',
   image: open('./app/images/post/tyukagai.jpeg'),
   lat: 35.449881,
-  lng: 139.652861,
+  lng: 139.652861
 )
 
 Post.create!(
@@ -253,7 +253,7 @@ Post.create!(
   town: '雷門',
   image: open('./app/images/post/kaminarimonn.jpeg'),
   lat: 35.709881,
-  lng: 139.794926,
+  lng: 139.794926
 )
 
 Post.create!(
@@ -266,7 +266,7 @@ Post.create!(
   town: '丸の内',
   image: open('./app/images/post/tokyo_station.jpeg'),
   lat: 35.680406,
-  lng: 139.766486,
+  lng: 139.766486
 )
 
 15.times do |n|

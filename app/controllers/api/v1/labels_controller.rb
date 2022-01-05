@@ -5,7 +5,7 @@ class Api::V1::LabelsController < ApplicationController
     if label.save
       render status: 201, json: post, serializer: PostSerializer
     else
-      render status: 422, json: { data: '作成に失敗しました'}
+      render status: 422, json: { data: '作成に失敗しました' }
     end
   end
 
