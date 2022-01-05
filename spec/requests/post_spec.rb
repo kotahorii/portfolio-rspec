@@ -7,16 +7,18 @@ RSpec.describe Api::V1::PostsController, type: :request do
 
   describe 'GET #index' do
     let!(:post) { create(:post) }
-    before do
-      get api_v1_posts_path, headers: headers
-    end
+    context '取得に成功したとき' do
+      before do
+        get api_v1_posts_path, headers: headers
+      end
 
-    it 'HTTPステータスが200であること' do
-      expect(response.status).to eq(200)
-    end
+      it 'HTTPステータスが200であること' do
+        expect(response.status).to eq(200)
+      end
 
-    it 'jsonで正しい投稿が取得されること' do
-      expect(json[0]['title']).to eq 'test'
+      it 'jsonで正しい投稿が取得されること' do
+        expect(json[0]['title']).to eq 'test'
+      end
     end
   end
 

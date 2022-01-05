@@ -86,7 +86,7 @@ RSpec.describe Api::V1::Auth::RegistrationsController, type: :request do
     context 'ユーザーがログインしているとき' do
       let!(:api_v1_current_user) { create(:user) }
       let(:headers) { api_v1_current_user.create_new_auth_token }
-      context 'パラメータが正常な場合' do
+      context '取得に成功したとき' do
         before do
           get api_v1_auth_sessions_path, headers: headers
         end
@@ -100,7 +100,7 @@ RSpec.describe Api::V1::Auth::RegistrationsController, type: :request do
         end
       end
 
-      context 'パラメータが正常な場合' do
+      context '取得に失敗したとき' do
         before do
           get api_v1_auth_sessions_path
         end

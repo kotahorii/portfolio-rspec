@@ -6,16 +6,18 @@ RSpec.describe Api::V1::UsersController, type: :request do
   let!(:user) { create(:user) }
 
   describe 'GET #index' do
-    before do
-      get api_v1_users_path, headers: headers
-    end
+    context '取得に成功したとき' do
+      before do
+        get api_v1_users_path, headers: headers
+      end
 
-    it 'HTTPステータスが200であること' do
-      expect(response.status).to eq(200)
-    end
+      it 'HTTPステータスが200であること' do
+        expect(response.status).to eq(200)
+      end
 
-    it 'jsonで正しい投稿が取得されること' do
-      expect(json[0]['name']).to eq 'rspec-user'
+      it 'jsonで正しい投稿が取得されること' do
+        expect(json[0]['name']).to eq 'rspec-user'
+      end
     end
   end
 
