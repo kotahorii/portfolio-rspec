@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Auth', type: :request do
+RSpec.describe Api::V1::Auth::RegistrationsController, type: :request do
   describe 'ユーザーログインのテスト' do
     let!(:user) {create(:user)}
     context 'パラメータが正常な場合' do
@@ -34,11 +34,12 @@ RSpec.describe 'Auth', type: :request do
     end
   end
 
-  describe 'ユーザー登録のテスト' do
+  describe 'ユーザー新規登録のテスト' do
     context 'パラメータが正常な場合' do
       let(:params) do
-        {name: 'test', prefecture: 3, email: 'testest@testtest.com', password: 'aaaaaa', password_confirmation: 'aaaaaa'}
+        { name: 'test', prefecture: 3, email: 'testest@testtest.com', password: 'aaaaaa', password_confirmation: 'aaaaaa' }
       end
+
       before do
         post api_v1_user_registration_path, params: params
       end
@@ -54,7 +55,10 @@ RSpec.describe 'Auth', type: :request do
     end
 
     context 'パラメータが異常な場合' do
-      let(:params) {{name: nil, email: 'test@it.com', password: 'password', prefecture: 14, introduction: 'testest'}}
+      let(:params) do
+        { name: nil, email: 'test@it.com', password: 'password', prefecture: 14, introduction: 'testest' }
+      end
+
       before do
         post api_v1_user_registration_path, params: params
       end

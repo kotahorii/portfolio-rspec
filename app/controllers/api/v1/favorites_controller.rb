@@ -5,7 +5,7 @@ class Api::V1::FavoritesController < ApplicationController
     if favorite.save
       render status: 201, json: post, serializer: PostSerializer
     else
-      render status: 401, json: { data: '作成に失敗しました' }
+      render status: 422, json: { data: '作成に失敗しました' }
     end
   end
 
@@ -15,7 +15,7 @@ class Api::V1::FavoritesController < ApplicationController
     if favorite.destroy
       render status: 200, json: post, serializer: PostSerializer
     else
-      render status: 401, json: { data: '削除に失敗しました' }
+      render status: 422, json: { data: '削除に失敗しました' }
     end
   end
 

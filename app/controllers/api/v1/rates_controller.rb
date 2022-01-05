@@ -5,7 +5,7 @@ class Api::V1::RatesController < ApplicationController
     if rate.save
       render status: 201, json: post, serializer: PostSerializer
     else
-      render status: 401, json: { data: '作成に失敗しました' }
+      render status: 422, json: { data: '作成に失敗しました' }
     end
   end
 
@@ -16,7 +16,7 @@ class Api::V1::RatesController < ApplicationController
     if rate.update(rate: rate_params[:rate], post_id: rate_params[:post_id], user_id: current_api_v1_user.id)
       render status: 200, json: post, serializer: PostSerializer
     else
-      render status: 401, json: { data: '更新に失敗しました' }
+      render status: 422, json: { data: '更新に失敗しました' }
     end
   end
 

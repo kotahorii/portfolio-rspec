@@ -16,7 +16,7 @@ class Api::V1::PostsController < ApplicationController
     if post.save
       render status: 201, json: post, serializer: PostSerializer
     else
-      render status: 401, json: { data: '投稿に失敗しました' }
+      render status: 422, json: { data: '投稿に失敗しました' }
     end
   end
 
@@ -34,7 +34,7 @@ class Api::V1::PostsController < ApplicationController
     if @post.save
       render status: 200, json: @post, serializer: PostSerializer
     else
-      render status: 401, json: { data: '更新に失敗しました' }
+      render status: 422, json: { data: '更新に失敗しました' }
     end
   end
 
@@ -42,7 +42,7 @@ class Api::V1::PostsController < ApplicationController
     if @post.destroy
       render status: 200, json: { data: '投稿を削除しました' }
     else
-      render status: 401, json: { data: '削除に失敗しました' }
+      render status: 422, json: { data: '削除に失敗しました' }
     end
   end
 
