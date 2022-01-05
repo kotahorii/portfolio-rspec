@@ -135,7 +135,7 @@ RSpec.describe Api::V1::PostsController, type: :request do
     end
 
     context 'パラメータが異常な場合' do
-      it '投稿が削除されること' do
+      it 'エラーが返されること' do
         expect do
           delete api_v1_post_path(id: 999), headers: headers
         end.to raise_exception(ActiveRecord::RecordNotFound)
