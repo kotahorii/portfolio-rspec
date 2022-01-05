@@ -50,11 +50,9 @@ RSpec.describe Api::V1::PostsController, type: :request do
       let(:params) do
         { title: 'test', body: 'test', prefecture: 'test', city: 'test', town: 'test', lat: 0, lng: 0 }
       end
-      before do
-        post api_v1_posts_path, params: params, headers: headers
-      end
 
       it 'HTTPステータスが201であること' do
+        post api_v1_posts_path, params: params, headers: headers
         expect(response.status).to eq(201)
       end
 
@@ -66,20 +64,18 @@ RSpec.describe Api::V1::PostsController, type: :request do
     end
 
     context '作成に失敗したとき' do
-      let(:params) do
+      let(:invalid_params) do
         { title: nil, body: 'test', prefecture: 'test', city: 'test', town: 'test', lat: 0, lng: 0 }
-      end
-      before do
-        post api_v1_posts_path, params: params, headers: headers
       end
 
       it 'HTTPステータスが422であること' do
+        post api_v1_posts_path, params: invalid_params, headers: headers
         expect(response.status).to eq(422)
       end
 
       it '投稿が保存されないこと' do
         expect do
-          post api_v1_posts_path, params: params, headers: headers
+          post api_v1_posts_path, params: invalid_params, headers: headers
         end.to_not change(Post, :count)
       end
     end

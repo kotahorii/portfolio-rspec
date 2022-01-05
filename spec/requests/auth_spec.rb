@@ -5,7 +5,7 @@ RSpec.describe Api::V1::Auth::RegistrationsController, type: :request do
     let!(:user) {create(:user)}
     context 'パラメータが正常な場合' do
       before do
-        post api_v1_user_session_path, params: {email:user['email'], password: 'password'}
+        post api_v1_user_session_path, params: { email: user['email'], password: 'password'}
       end
 
       it 'HTTPステータスが200であること' do
@@ -40,15 +40,13 @@ RSpec.describe Api::V1::Auth::RegistrationsController, type: :request do
         { name: 'test', prefecture: 3, email: 'testest@testtest.com', password: 'aaaaaa', password_confirmation: 'aaaaaa' }
       end
 
-      before do
-        post api_v1_user_registration_path, params: params
-      end
-
       it 'HTTPステータスが200であること' do
+        post api_v1_user_registration_path, params: params
         expect(response.status).to eq(200)
       end
 
       it 'レスポンスのjsonが正しいこと' do
+        post api_v1_user_registration_path, params: params
         json = JSON.parse(response.body)
         expect(json['data']['name']).to eq 'test'
       end

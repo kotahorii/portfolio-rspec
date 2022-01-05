@@ -38,18 +38,18 @@ RSpec.describe Api::V1::UsersController, type: :request do
     end
 
     context 'パラメータが異常な場合' do
-      let(:params) do
-        { id: 1, name: nil, introduction:'introduction update', prefecture: 2, lat: 0, lng: 0 }
+      let(:invalid_params) do
+        { id: 1, name: nil, introduction: 'introduction update', prefecture: 2, lat: 0, lng: 0 }
       end
 
       it 'HTTPステータスが422であること' do
-        patch api_v1_user_path(id: 1), params: params, headers: headers
+        patch api_v1_user_path(id: 1), params: invalid_params, headers: headers
         expect(response.status).to eq 422
       end
 
       it '名前が更新されないこと' do
         expect do
-          patch api_v1_user_path(id: 1), params: params, headers: headers
+          patch api_v1_user_path(id: 1), params: invalid_params, headers: headers
         end.to_not change(User.find(1), :name)
       end
     end
