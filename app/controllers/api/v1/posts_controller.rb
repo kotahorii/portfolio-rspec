@@ -3,20 +3,20 @@ class Api::V1::PostsController < ApplicationController
 
   def index
     posts = Post.all.order(created_at: 'DESC')
-    render json: posts, each_serializer: PostSerializer
+    render status: 200, json: posts, each_serializer: PostSerializer
   end
 
   def show
-    render json: @post, serializer: PostSerializer
+    render status: 200, json: @post, serializer: PostSerializer
   end
 
   def create
     post = Post.new(post_params)
     post.user_id = current_api_v1_user.id
     if post.save
-      render json: post, serializer: PostSerializer
+      render status: 201, json: post, serializer: PostSerializer
     else
-      render json: { data: '投稿に失敗しました' }
+      render status: 401, json: { data: '投稿に失敗しました' }
     end
   end
 
@@ -34,15 +34,15 @@ class Api::V1::PostsController < ApplicationController
     if @post.save
       render status: 200, json: @post, serializer: PostSerializer
     else
-      render json: { data: '更新に失敗しました' }
+      render status: 401, json: { data: '更新に失敗しました' }
     end
   end
 
   def destroy
     if @post.destroy
-      render json: { data: '投稿を削除しました' }
+      render status: 200, json: { data: '投稿を削除しました' }
     else
-      render josn: { data: '削除に失敗しました' }
+      render status: 401, json: { data: '削除に失敗しました' }
     end
   end
 

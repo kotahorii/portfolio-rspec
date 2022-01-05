@@ -6,9 +6,5 @@ FactoryBot.define do
     password {'password'}
     prefecture {14}
     introduction {'testtesttest'}
-
-    trait :invalid do
-      name {nil}
-    end
   end
 end

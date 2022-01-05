@@ -8,6 +8,6 @@ class Api::V1::HotpeppersController < ApplicationController
     json = JSON.parse(response.body)
     puts response.status
     puts response.body
-    render json: json
+    render status: 200, json: json
   end
 end

@@ -3,9 +3,9 @@ class Api::V1::CommentsController < ApplicationController
     comment = current_api_v1_user.comments.new(comment_params)
     post = Post.find_by(id: comment.post_id)
     if comment.save
-      render json: post, serializer: PostSerializer
+      render status: 201, json: post, serializer: PostSerializer
     else
-      render json: { data: '作成に失敗しました'}
+      render status: 401, json: { data: '作成に失敗しました'}
     end
   end
 
@@ -13,9 +13,9 @@ class Api::V1::CommentsController < ApplicationController
     comment = Comment.find(params[:id])
     post = Post.find_by(id: comment.post_id)
     if comment.destroy
-      render json: post, serializer: PostSerializer
+      render status: 200, json: post, serializer: PostSerializer
     else
-      render json: { data: '削除に失敗しました' }
+      render status: 401, json: { data: '削除に失敗しました' }
     end
   end
 
